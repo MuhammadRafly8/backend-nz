@@ -1,3 +1,4 @@
+// src/utils/slugify.js
 module.exports = (text) => {
   return text
     .toString()

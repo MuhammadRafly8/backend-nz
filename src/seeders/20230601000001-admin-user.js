@@ -10,7 +10,7 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [{
       id: uuidv4(),
       name: 'Admin',
-      email: 'admin@portalberita.com',
+      email: 'admin1@portalberita.com',
       password: hashedPassword,
       role: 'admin',
       createdAt: new Date(),
