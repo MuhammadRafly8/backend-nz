@@ -30,6 +30,10 @@ const Article = sequelize.define('Article', {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   },
+  featured: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
+  },
   viewCount: {
     type: DataTypes.INTEGER,
     defaultValue: 0
@@ -37,9 +41,35 @@ const Article = sequelize.define('Article', {
   publishedAt: {
     type: DataTypes.DATE,
     allowNull: true
+  },
+  department: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    comment: 'Department/Jurusan for the article (rpl, tkj, mm, etc.)'
+  },
+  metaDescription: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+    comment: 'SEO meta description'
+  },
+  tags: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+    comment: 'Comma-separated tags for the article'
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  indexes: [
+    {
+      fields: ['published', 'featured']
+    },
+    {
+      fields: ['department']
+    },
+    {
+      fields: ['publishedAt']
+    }
+  ]
 });
 
 module.exports = Article;

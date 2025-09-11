@@ -10,6 +10,9 @@ Article.belongsTo(User, { foreignKey: 'authorId', as: 'author' });
 Category.hasMany(Article, { foreignKey: 'categoryId' });
 Article.belongsTo(Category, { foreignKey: 'categoryId', as: 'category' });
 
+// Add articles association to Category for counting
+Category.hasMany(Article, { foreignKey: 'categoryId', as: 'articles' });
+
 module.exports = {
   User,
   Article,
