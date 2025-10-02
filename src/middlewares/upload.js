@@ -2,8 +2,8 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '../uploads/');
+// Ensure uploads directory exists (align with static folder served in server.js => be/uploads)
+const uploadsDir = path.join(__dirname, '../../uploads/');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
